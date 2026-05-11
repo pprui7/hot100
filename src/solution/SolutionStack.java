@@ -4,10 +4,25 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class SolutionStack {
+    /**
+     * 判断括号字符串是否有效（只包含 ()、[]、{} 三类括号）。
+     *
+     * <p>判定规则：
+     * 1) 左括号必须由相同类型的右括号闭合；
+     * 2) 左括号必须按正确顺序闭合；
+     * 3) 每个右括号都必须有对应的左括号。
+     *
+     * <p>实现思路（栈）：
+     * 遍历字符串，遇到左括号时，把“期望匹配的右括号”压栈；
+     * 遇到右括号时，必须与栈顶期望值一致，否则直接返回 false。
+     * 遍历结束后栈为空才说明全部匹配成功。
+     *
+     * <p>时间复杂度 O(n)，空间复杂度 O(n)。
+     */
     public boolean isValid(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
-            // Push the expected closing bracket, then verify each closing bracket matches it.
+            // 左括号：压入“期望匹配的右括号”。
             if (c == '(') {
                 stack.push(')');
             } else if (c == '[') {
@@ -15,9 +30,11 @@ public class SolutionStack {
             } else if (c == '{') {
                 stack.push('}');
             } else if (stack.isEmpty() || stack.pop() != c) {
+                // 右括号：若栈空或与栈顶期望值不一致，则不是有效括号串。
                 return false;
             }
         }
+        // 栈为空表示所有左括号都已被正确闭合。
         return stack.isEmpty();
     }
 
