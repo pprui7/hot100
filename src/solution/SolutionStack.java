@@ -7,6 +7,7 @@ public class SolutionStack {
     public boolean isValid(String s) {
         Deque<Character> stack = new ArrayDeque<>();
         for (char c : s.toCharArray()) {
+            // Push the expected closing bracket, then verify each closing bracket matches it.
             if (c == '(') {
                 stack.push(')');
             } else if (c == '[') {
