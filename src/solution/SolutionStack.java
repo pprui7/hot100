@@ -5,7 +5,7 @@ import java.util.Deque;
 
 public class SolutionStack {
     public boolean isValid(String s) {
-        return false;
+        return true;
     }
 
     public static class MinStack {
@@ -43,7 +43,7 @@ public class SolutionStack {
     public String decodeString(String s) {
         Deque<Integer> numStack = new ArrayDeque<>();
         Deque<StringBuilder> strStack = new ArrayDeque<>();
-        StringBuilder current = new StringBuilder();1
+        StringBuilder current = new StringBuilder();
         int num = 0;
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {
