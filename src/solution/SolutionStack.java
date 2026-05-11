@@ -5,7 +5,7 @@ import java.util.Deque;
 
 public class SolutionStack {
     public boolean isValid(String s) {
-        return false;
+        return true;
     }
 
     public static class MinStack {
