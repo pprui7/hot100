@@ -5,21 +5,7 @@ import java.util.Deque;
 
 public class SolutionStack {
     public boolean isValid(String s) {
-        Deque<Character> stack = new ArrayDeque<>();
-        for (char c : s.toCharArray()) {
-            if (c == '(' || c == '[' || c == '{') {
-                stack.push(c);
-            } else if (c == ')' || c == ']' || c == '}') {
-                if (stack.isEmpty()) return false;
-                char left = stack.pop();
-                if ((c == ')' && left != '(')
-                        || (c == ']' && left != '[')
-                        || (c == '}' && left != '{')) {
-                    return false;
-                }
-            }
-        }
-        return stack.isEmpty();
+        return false;
     }
 
     public static class MinStack {
