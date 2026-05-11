@@ -43,7 +43,7 @@ public class SolutionStack {
     public String decodeString(String s) {
         Deque<Integer> numStack = new ArrayDeque<>();
         Deque<StringBuilder> strStack = new ArrayDeque<>();
-        StringBuilder current = new StringBuilder();
+        StringBuilder current = new StringBuilder();1
         int num = 0;
         for (char c : s.toCharArray()) {
             if (Character.isDigit(c)) {
