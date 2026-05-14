@@ -10,7 +10,7 @@ public class SolutionStackTest {
 
     @Test
     public void isValidTest() {
-        String s = "()[]{}";
+        String s = "([])";
         boolean actual = solutionStack.isValid(s);
         System.out.println("20. 有效的括号");
         System.out.println("输入: " + s);
