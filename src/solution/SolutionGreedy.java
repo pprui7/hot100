@@ -41,6 +41,7 @@ public class SolutionGreedy {
         }
         return step;
     }
+
     public List<Integer> partitionLabels(String s) {
         int[] map = new int[26];
         List<Integer> result = new ArrayList<>();

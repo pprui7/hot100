@@ -16,7 +16,6 @@ public class SolutionGraph {
         }
         return result;
     }
-
     private void dfs(int i, int j, int len1, int len2, char[][] grid) {
         if (i < 0 || j < 0 || i > len1 || j > len2 || grid[i][j] == '0')
             return;
@@ -31,7 +30,6 @@ public class SolutionGraph {
     int[] visited;
     List<List<Integer>> adjList;
     List<Integer> topologicalOrder;
-
     public boolean dfsCanFinish(int numCourses, int[][] prerequisites) {
         adjList = new ArrayList<>();
         visited = new int[numCourses];
@@ -52,7 +50,6 @@ public class SolutionGraph {
         System.out.println(topologicalOrder);
         return true;
     }
-
     private boolean dfsCanFinishHelper(int i) {
         visited[i] = 1;
         for (Integer neighbour : adjList.get(i)) {
@@ -67,10 +64,8 @@ public class SolutionGraph {
         topologicalOrder.add(i);
         return false;
     }
-
     // BFS
     int[] inDegree;
-
     public boolean bfsCanFinish(int numCourses, int[][] prerequisites) {
         adjList = new ArrayList<>();
         inDegree = new int[numCourses];
@@ -102,10 +97,10 @@ public class SolutionGraph {
         return count == numCourses;
     }
 
+
     int len1;
     int len2;
     int newCount;
-
     public int orangesRotting(int[][] grid) {
         newCount = 0;
         Queue<int[]> oldlist = new ArrayDeque<>();
@@ -116,7 +111,6 @@ public class SolutionGraph {
                 if (grid[i][j] == 1)
                     newCount++;
                 if (grid[i][j] == 2) {
-                    grid[i][j] = 0;
                     oldlist.add(new int[]{i, j});
                 }
             }
