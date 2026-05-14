@@ -6,25 +6,22 @@ import java.util.*;
 
 public class SolutionTree {
 
-    // 遍历  中左右  左中右  左右中
+    // 遍历  中左右  左中右  左右中  层序
     private void preTraversal(TreeNode root, List<Integer> list) {
-        if (root == null) {
-            list.add(-1);
+        if (root == null)
             return;
-        }
 
         list.add(root.val);
         preTraversal(root.left, list);
         preTraversal(root.right, list);
     }
     private void postTraversal(TreeNode root, List<Integer> list) {
-        if (root == null) {
-            list.add(-1);
+        if (root == null)
             return;
-        }
-        list.add(root.val);
         postTraversal(root.right, list);
         postTraversal(root.left, list);
+        list.add(root.val);
+
     }
     private void inTraversal(TreeNode root, List<Integer> list) {
         if (root == null)
@@ -65,13 +62,13 @@ public class SolutionTree {
     }
 
 
-    // 后序遍历的变形 //深度 = 节点数
+    // 后序遍历的变形 // 深度 = 节点数
     public int maxDepth(TreeNode root) {
         if (root == null)
             return 0;
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
-
+    // 直径 = 左右两边节点数  返回左右最深节点数  // 结果 != 返回值(左右取最大）
     private int max = 0;
     public int diameterOfBinaryTree(TreeNode root) {
         diameterTree(root);
@@ -85,7 +82,7 @@ public class SolutionTree {
         max = Math.max(left + right, max);
         return Math.max(left, right) + 1;
     }
-
+    // 类似最大子数组和  左右根据正负可选可不选   // 结果 != 返回值(左右取最大）
     private int maxSum = Integer.MIN_VALUE;
     public int maxPathSum(TreeNode root) {
         maxSum(root);
@@ -99,6 +96,8 @@ public class SolutionTree {
         return root.val + Math.max(left, right);
     }
 
+
+
     public TreeNode invertTree(TreeNode root) {
         if (root == null)
             return null;
@@ -108,7 +107,6 @@ public class SolutionTree {
         root.right = invertTree(left);
         return root;
     }
-
     public boolean isSymmetric(TreeNode root) {
         if (root == null)
             return false;
@@ -127,6 +125,7 @@ public class SolutionTree {
 
 
     // 二叉搜索树与中序遍历
+    // 有序数组转二叉搜索树
     public TreeNode sortedArrayToBST(int[] nums) {
         return arrayToBST(nums, 0, nums.length);
     }
@@ -148,7 +147,7 @@ public class SolutionTree {
         treeNode.right = arrayToBST(nums, mid + 1, end);
         return treeNode;
     }
-
+    // 验证二叉搜索树
     public boolean isValidBST(TreeNode root) {
         return validBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
@@ -160,7 +159,7 @@ public class SolutionTree {
         }
         return validBST(root.left, min, root.val) && validBST(root.right, root.val, max);
     }
-
+    // 找第k小的数  中序遍历第k个  引出中序遍历的迭代算法
     public int kthSmallest(TreeNode root, int k) {
         List<TreeNode> list = new ArrayList<>();
         TreeNode curr = root;
