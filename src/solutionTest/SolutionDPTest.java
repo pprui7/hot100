@@ -47,8 +47,8 @@ public class SolutionDPTest {
 
     @Test
     public void coinChangeTest() {
-        int[] coins = {1, 2, 5};
-        int amount = 11;
+        int[] coins = {2};
+        int amount = 3;
         int actual = solutionDP.coinChange(coins, amount);
         System.out.println("322. 零钱兑换");
         System.out.println("输入: coins = " + Arrays.toString(coins) + ", amount = " + amount);
@@ -67,7 +67,7 @@ public class SolutionDPTest {
 
     @Test
     public void lengthOfLISTest() {
-        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
+        int[] nums = {1,3,6,7,9,4,10,5,6};
         int actual = solutionDP.lengthOfLIS(nums);
         System.out.println("300. 最长递增子序列");
         System.out.println("输入: nums = " + Arrays.toString(nums));
@@ -76,7 +76,7 @@ public class SolutionDPTest {
 
     @Test
     public void maxProductTest() {
-        int[] nums = {2, 3, -2, 4};
+        int[] nums = {2,-5,-2,-4,3};
         int actual = solutionDP.maxProduct(nums);
         System.out.println("152. 乘积最大子数组");
         System.out.println("输入: nums = " + Arrays.toString(nums));
@@ -94,10 +94,13 @@ public class SolutionDPTest {
 
     @Test
     public void longestValidParenthesesTest() {
-        String s = ")()())";
-        int actual = solutionDP.longestValidParentheses(s);
-        System.out.println("32. 最长有效括号");
-        System.out.println("输入: s = " + s);
-        System.out.println("输出: " + actual);
+
+        String[] s = {")(((((()())()()))()(()))(", "(()())", "((()))"};
+        for (String str : s) {
+            int actual = solutionDP.longestValidParentheses(str);
+            System.out.println("输入: str = " + str);
+            System.out.println("输出: " + actual);
+        }
+
     }
 }
